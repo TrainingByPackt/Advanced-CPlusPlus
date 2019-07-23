@@ -65,28 +65,11 @@ int main()
 	threads.reserve(numberOfTasks);
 
 	std::vector<std::string> textArr;
-	textArr.emplace_back("As a physical object, a book is a stack of usually rectangular pages (made of papyrus, parchment, vellum, or paper) oriented with one edge tied, \
-sewn, or otherwise fixed together and then bound to the flexible spine of a protective cover of heavier, relatively inflexible material.[1] \
-The technical term for this physical arrangement is codex (in the plural, codices). In the history of hand-held physical supports for extended written compositions or records, \
-the codex replaces its immediate predecessor, the scroll. A single sheet in a codex is a leaf, and each side of a leaf is a page.");
-	textArr.emplace_back("As an intellectual object, a book is prototypically a composition of such great length that it takes a considerable investment of time to compose and a still considerable, \
-though not so extensive, investment of time to read. This sense of book has a restricted and an unrestricted sense. In the restricted sense, \
-a book is a self-sufficient section or part of a longer composition, a usage that reflects the fact that, in antiquity, long works had to be written on several scrolls, \
-and each scroll had to be identified by the book it contained. So, for instance, each part of Aristotle's Physics is called a book, \
-as of course, the Bible encompasses many different books. In the unrestricted sense, a book is the compositional whole of which such sections, \
-whether called books or chapters or parts, are parts.");
-	textArr.emplace_back("The intellectual content in a physical book need not be a composition, nor even be called a book. Books can consist only of drawings, engravings, \
-or photographs, or such things as crossword puzzles or cut-out dolls. In a physical book, the pages can be left blank or can feature an abstract set of lines \
-as support for on-going entries, i.e., an account book, an appointment book, a log book, an autograph book, a notebook, a diary or day book, or a sketchbook. \
-Some physical books are made with pages thick and sturdy enough to support other physical objects, like a scrapbook or photograph album. \
-Books may be distributed in electronic form as e-books and other formats.");
-	textArr.emplace_back("Although in ordinary academic parlance a monograph is understood to be a specialist academic work, rather than a reference work on a single scholarly subject, \
-in library and information science monograph denotes more broadly any non-serial publication complete in one volume (book) or a finite number of volumes \
-(even a novel like Proust's seven-volume In Search of Lost Time), in contrast to serial publications like a magazine, journal, or newspaper. \
-An avid reader or collector of books or a book lover is a bibliophile or colloquially, \"bookworm\". A shop where books are bought and sold is a bookshop or bookstore. \
-Books are also sold elsewhere. Books can also be borrowed from libraries. Google has estimated that as of 2010, approximately 130,000,000 distinct titles had been published.[2] \
-In some wealthier nations, the sale of printed books has decreased because of the increased usage of e-books.[3]");
-	textArr.emplace_back("The word book comes from Old English \"bōc\", which in turn comes from the Germanic root \"*bōk-\", cognate to \"beech\".[4]");
+	textArr.emplace_back("In the previous topics, we learned almost all that we need to work with threads. But we still have something interesting to consider – how to synchronize threads using future results. When we considered condition variables we didn’t cover the second type of synchronization with future results. Now it’s time to learn that.");
+	textArr.emplace_back("First of all, let’s consider a real-life example. Imagine, you just passed the exam at the university. You were asked to wait for results some time. So, you have time to coffee with your mates, and every 10-15 mins you check are results available. Then, when you finished all your other activities, you just come to the door of the lecture room and wait for results.");
+	textArr.emplace_back("In this exercise, we will write a simple application where we will use std::move() with threads. First of all, we will implement a class that is move constructible. This class will convert lowercase text into uppercase text. Then we will create a vector of instances of this class. Next, we will create a vector of std::thread object. Finally, we will initialize threads with an object from the first vector");
+	textArr.emplace_back("Let’s consider one interesting issue. As you remember when we initialize std::thread all constructor arguments are copied into thread memory, including a callable object – lambda, function, std::function. But what if our callable object doesn’t support copy semantic? For example, we created a class that has only move constructor and move assignment operator:");
+	textArr.emplace_back("Run this code in your editor. You will see in the console log from the default constructor, two logs from the move operator, then one log from a destructor, then message from the doSomeJob() function and, finally two other log messages from the destructor. We see that the move constructor is called twice.You will get the output like the following:");
 
 	for (int i = 0; i < numberOfTasks; ++i)
 	{
