@@ -29,7 +29,8 @@ int main(int argc, char **argv)
       ifs.seekg(0, std::ios::end); 
       
       // Get length and allow for 1 extra character at the end
-      len = ifs.tellg() + 1;
+      len = ifs.tellg();
+      len++;
       
       // Pad to 32 byte boundary
       size_t rem = len % 32;
