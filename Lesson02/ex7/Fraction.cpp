@@ -7,22 +7,13 @@
 //============================================================================
 #include "Fraction.hpp"
 #include <cmath>
+#include <numeric>
 
 namespace {
 inline int signum(int val) {
     return (0 < val) - (val < 0);
 }
 
-int gcd(int x, int y)
-{
-    while(y!=0)
-    {
-        auto c{x%y};
-        x = y;
-        y = c;
-    }
-    return x;
-}
 }
 
 Fraction::Fraction(int numerator, int denominator) : m_numerator{numerator}, m_denominator{denominator}
@@ -31,7 +22,7 @@ Fraction::Fraction(int numerator, int denominator) : m_numerator{numerator}, m_d
     m_numerator = std::abs(m_numerator);
     m_denominator = std::abs(m_denominator);
 
-    int divisor{gcd(m_numerator, m_denominator)};
+    int divisor{std::gcd(m_numerator, m_denominator)};
     m_numerator = sign * m_numerator / divisor;
     m_denominator = m_denominator / divisor;
 }

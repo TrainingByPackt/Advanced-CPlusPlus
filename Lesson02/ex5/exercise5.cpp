@@ -8,17 +8,7 @@
 
 #include <iostream>
 #include <string>
-
-int gcd(int x, int y)
-{
-    while(y!=0)
-    {
-        auto c{x%y};
-        x = y;
-        y = c;
-    }
-    return x;
-}
+#include <numeric>
 
 class Fraction
 {
