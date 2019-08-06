@@ -68,3 +68,8 @@ add_subdirectory(ex7/tests)
 # ------------------------------------------------------------------
 add_executable(Exercise8 ex8/exercise8.cpp)
 
+# ------------------------------------------------------------------
+# Exercise 9
+# ------------------------------------------------------------------
+add_executable(Exercise9 ex9/exercise9.cpp)
+add_subdirectory(ex9/tests)

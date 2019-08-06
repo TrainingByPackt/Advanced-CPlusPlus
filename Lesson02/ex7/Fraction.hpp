@@ -5,6 +5,7 @@
 // Copyright   : Your copyright notice
 // Description : Exercise 7 Lesson 2
 //============================================================================
+#pragma once
 #include <iostream>
 
 #define EXERCISE7_STEP    1
