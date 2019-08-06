@@ -14,22 +14,21 @@ int main(int argc, char**argv)
 {
     std::cout << "\n\n------ Exercise 9 ------\n";
 
-//    Fraction fraction(5);
-//
-//    std::cout << fraction << "\n";
-//    Fraction f1(1, 24);
-//    Fraction f2(3, 5);
-//    std::cout << f1 << " * " << f2 << " = " << f1*f2 << "\n";
-//    std::cout << f1 << " + " << f2 << " = " << f1+f2 << "\n";
-//    std::cout << f1 << " - " << f2 << " = " << f1-f2 << "\n";
-//    std::cout << f1 << " / " << f2 << " = " << f1/f2 << "\n";
-//
-//
-//    std::cout << "sizeof(Fraction) = " << sizeof(Fraction) << " bytes\n";
-//    std::cout << "sizeof(Fraction.m_numerator)   = " << sizeof(int) << " bytes\n";
-//    std::cout << "sizeof(Fraction.m_denominator) = " << sizeof(int) << " bytes\n";
-//
+#if EXERCISE9_STEP >= 20
+    const char* emptyStr[2] = {"not empty", "empty"};
+    acpp::Stack<float> mystack;
 
+    std::cout << "Stack is " << emptyStr[mystack.empty()] << "\n";
+    std::cout << "Pushing 0.0F onto stack\n";
+    mystack.push(0.0F);
+    std::cout << "Stack is " << emptyStr[mystack.empty()] << "\n";
+    std::cout << "Pushing 3.14159F onto stack\n";
+    mystack.push(3.14159F);
+    std::cout << "Stack has " << mystack.size() << " items\n";
+    std::cout << "Top item is " << mystack.top() << "\n";
+
+
+#endif
     std::cout << "Complete.\n";
     return 0;
 }
