@@ -4,7 +4,8 @@
 # Version     :
 # Copyright   : Your copyright notice
 # Description : Lesson 3 Activity 1 tests build file
-#============================================================================include(GoogleTest)
+#============================================================================
+include(GoogleTest)
 add_executable(graphicstests matrix3dTests.cpp ../matrix3d.cpp point3dTests.cpp ../point3d.cpp serialisationTests.cpp)
 target_link_libraries(graphicstests GTest::GTest GTest::Main)
 
