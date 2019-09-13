@@ -12,20 +12,21 @@ int main(int argc, char**argv)
 {
     std::cout << "\n\n------ Exercise 1 ------\n";
 
-    int value = 42;     // declare value to be an integer and initialise to 42
-    short a_value{64};  // declare a_value to be a short integer and initialise
-                        //    to 64
+    int value = 42;     // declare value to be an integer & initialise to 42
+    short a_value{64};  // declare a_value to be a short integer &
+                        // initialise to 64
     int bad_idea;       // declare bad_idea to be an integer and DO NOT 
-                        // initialise it. Use of this variable before setting
-                        // it is UNDEFINED BEHAVIOUR.
+                        // initialise it. Use of this variable before 
+                        // setting it is UNDEFINED BEHAVIOUR.
 
-    float pi = 3.1415F; // declare pi to be a single precision floating point
-                        // number and initialise it to pi.
+    float pi = 3.1415F; // declare pi to be a single precision floating
+                        // point number and initialise it to pi.
                          
     double e{2.71828};  // declare e to be a double precision floating point
                         // number and initialise it to natural number e.
 
-    auto title = "Sir Robin of Loxley"; // Let the compiler determine the type
+    auto title = "Sir Robin of Loxley";
+                        // Let the compiler determine the type
     int ary[15]{};      // array of 15 integers - zero initialised
 
     // double pi = 3.14159;  // step 24 - remove comment at front
@@ -40,7 +41,8 @@ int main(int argc, char**argv)
     std::cout << "sizeof(double) = " << sizeof(double) << "\n";
     std::cout << "sizeof(title) = " << sizeof(title) << "\n";
     std::cout << "sizeof(ary) = " << sizeof(ary)
-              << " = " << sizeof(ary)/sizeof(ary[0]) << " * " << sizeof(ary[0]) << "\n";
+              << " = " << sizeof(ary)/sizeof(ary[0]) 
+              << " * " << sizeof(ary[0]) << "\n";
     std::cout << "Complete.\n";
     return 0;
 }

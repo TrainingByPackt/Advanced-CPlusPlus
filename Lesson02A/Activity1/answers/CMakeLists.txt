@@ -7,7 +7,7 @@
 #============================================================================
 cmake_minimum_required(VERSION 3.11.0)
 
-project(Activty01
+project(Activity01
   VERSION 0.1.0.0
   DESCRIPTION "Activity 1 for Lesson 2 of Advanced C++ course."
 )
@@ -27,7 +27,7 @@ include(FetchContent)
 # ------------------------------------------------------------------
 # Activity 1
 # ------------------------------------------------------------------
-add_executable(graphics point3d.cpp main.cpp)
+add_executable(graphics point3d.cpp main.cpp matrix3d.cpp)
 find_package(GTest)
 
 enable_testing()
