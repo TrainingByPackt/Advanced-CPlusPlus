@@ -30,7 +30,7 @@ int main(int argc, char **argv)
       
       // Get length and allow for 1 extra character at the end
       len = ifs.tellg();
-      len++;
+      ++len;
       
       // Pad to 32 byte boundary
       size_t rem = len % 32;

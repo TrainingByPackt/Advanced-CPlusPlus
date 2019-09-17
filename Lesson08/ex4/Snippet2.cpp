@@ -54,12 +54,13 @@ public:
 map<string, int64_t> Timer::ms_Counts;
 map<string, int64_t> Timer::ms_Times;
 
+#define TIME_IT Timer t(__func__)
 
 const int64_t N = 1'000'000'000;
 
 unsigned int testMul()
 {
-  Timer t("Mul");
+  Timer t("Test Mul");
   
   unsigned int x = 1;
   for(int i = 0; i < N; ++i)
@@ -72,7 +73,7 @@ unsigned int testMul()
 
 unsigned int testAdd()
 {
-  Timer t("Add");
+  Timer t("Test Add");
   
   unsigned int x = 1;
   for(int i = 0; i < N; ++i)

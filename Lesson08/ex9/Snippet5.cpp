@@ -8,7 +8,7 @@ using std::vector;
 using std::cerr;
 using std::endl;
 
-const int N = 100000000;
+const int N = 1000000;
 
 void withoutReserve(vector<int> &v)
 {
@@ -34,7 +34,7 @@ int main()
 {
   {
     vector<int> v1;
-    for(int i = 0; i < 10; ++i)
+    for(int i = 0; i < 100; ++i)
     {
       withoutReserve(v1);
     }
@@ -42,7 +42,7 @@ int main()
   
   {
     vector<int> v2;
-    for(int i = 0; i < 10; ++i)
+    for(int i = 0; i < 100; ++i)
     {
       withReserve(v2);
     }
