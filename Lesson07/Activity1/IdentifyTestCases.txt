@@ -1,0 +1,51 @@
+function : trim
+testcases
+1: "    " , result is empty. 
+2: " ada" , result "ada"
+3: "sfat  " , result "sfat"
+4: "  asah " , result "asah"
+5: "  a  " , result "a"
+
+
+functon : isAllNumbers 
+testscases: 
+1 : 111.111 pass
+2 : .232 pass
+3 : asdas.das fail
+4 : 112.#$  fail
+5 : wr.43432  fail
+
+
+function : isDigit
+testcases: 
+1 : 234 pass
+2 : 23w23 fail
+3 : 2.3 fail
+
+function : parseCurrencyParameters
+testcases
+1 : <ASD, 12.12> pass
+2 : <ADSA, 1231. > fail
+3 : <ASD, A34> fail
+
+function : checkFile
+testcases:
+1: No File present: fail 
+2: Empty file : fail
+3: Incorrect header contents in file : fail
+4: Correct contents in file : pass
+
+function : parseConfig
+2. no CurrencyFile parameters set , fail
+3. no RecordFile parameters set , fail
+4. correct file contents , pass
+
+function : fillCurrencyMap
+1. Wrong delimiter : fail
+2. wrong contents or columns, fail
+3. correct contents, pass
+
+function : parseRecordFile
+1. Wrong delimiter, fail
+2. Wrong column contents, fail
+3. correct contents, pass
