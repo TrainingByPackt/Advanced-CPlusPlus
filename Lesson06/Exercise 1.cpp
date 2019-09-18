@@ -1,7 +1,7 @@
 //============================================================================
-// Name        : Exercise1.cpp
+// Name        : Exercise2.cpp
 // Author      : Olena Lizina
-// Description : Exercise 1
+// Description : Exercise 3
 //============================================================================
 
 #include <fstream>
