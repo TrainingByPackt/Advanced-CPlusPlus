@@ -8,9 +8,8 @@
 #pragma once
 #include <vector>
 #include <cstddef>
-#include <stdexcept>
 
-#define EXERCISE1_STEP  35
+#define EXERCISE1_STEP  1
 
 namespace acpp
 {
@@ -41,22 +40,16 @@ public:
 
     void pop()
     {
-        if(empty())
-            throw std::underflow_error("Pop from empty stack");
         m_stack.pop_back();
     }
 
     reference top()
     {
-        if(empty())
-            throw std::underflow_error("Top from empty stack");
         return m_stack.back();
     }
 
     const_reference top() const
     {
-        if(empty())
-            throw std::underflow_error("Top from empty stack");
         return m_stack.back();
     }
 
