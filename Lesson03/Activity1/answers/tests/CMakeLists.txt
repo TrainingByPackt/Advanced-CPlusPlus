@@ -6,11 +6,20 @@
 # Description : Lesson 3 Activity 1 tests build file
 #============================================================================
 include(GoogleTest)
-add_executable(graphicstests matrix3dTests.cpp ../matrix3d.cpp point3dTests.cpp ../point3d.cpp serialisationTests.cpp)
-target_link_libraries(graphicstests GTest::GTest GTest::Main)
 
-if(EXISTS ${nlohmann_json_SOURCE_DIR})
-  target_include_directories(graphicstests PRIVATE ${nlohmann_json_SOURCE_DIR}/include)
-endif()
+SET(SRC_FILES 
+    ../matrix3d.cpp 
+    ../point3d.cpp)
 
-gtest_discover_tests(graphicstests)
+SET(TEST_FILES 
+    matrix3dTests.cpp 
+    point3dTests.cpp)
+
+add_executable(L3graphicstests 
+    ${SRC_FILES}
+    ${TEST_FILES}
+    )
+
+target_link_libraries(L3graphicstests GTest::GTest GTest::Main)
+
+gtest_discover_tests(L3graphicstests)

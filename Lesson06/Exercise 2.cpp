@@ -4,56 +4,75 @@
 // Description : Exercise 2
 //============================================================================
 
+#include <fstream>
 #include <iostream>
 #include <string>
 
-class Track
+class Book
 {
 public:
-	Track(const std::string& name,
-		  const std::string& singer,
-	      const std::string& date,
-	      const unsigned int& lengthInSeconds)
-		: m_Name(name)
-		, m_Singer(singer)
-		, m_Date(date)
-		, m_LengthInSeconds(lengthInSeconds)
-{
-}
+	Book(const std::string& name,
+		 const std::string& author,
+		 const int year,
+		 const float price)
+	: m_Name(name)
+	, m_Author(author)
+	, m_Year(year)
+	, m_Price(price) {}
 
 	std::string getName() const { return m_Name; }
-	std::string getSinger() const { return m_Singer; }
-	std::string getDate() const { return m_Date; }
-	unsigned int getLength() const { return m_LengthInSeconds; }
+	std::string getAuthor() const { return m_Author; }
+	int getYear() const { return m_Year; }
+	float getPrice() const { return m_Price; }
 
 private:
 	std::string m_Name;
-	std::string m_Singer;
-	std::string m_Date;
-	unsigned int m_LengthInSeconds;
+	std::string m_Author;
+	int m_Year;
+	float m_Price;
 };
-
-template <typename charT, typename Traits>
-inline std::basic_ostream<charT, Traits>&
-operator<<(std::basic_ostream<charT, Traits>& os, Track trackItem)
-{
-	os << "Track information: ["
-	   << "Name: " << trackItem.getName()
-	   << ", Singer: " << trackItem.getSinger()
-	   << ", Date of creation: " << trackItem.getDate()
-	   << ", Length in seconds: " << trackItem.getLength()
-	   << "]";
-	return os;
-}
 
 int main(int argc, char **argv)
 {
-	Track track_001("Summer night city",
-			        "ABBA",
-					"1979",
-					213);
+	std::string pricesFile("prices.txt");
 
-	std::cout << track_001 << std::endl;
+	Book book_001("Brave", "Olena Lizina", 2017, 33.57);
 
+	{
+		std::ofstream outFile(pricesFile);
+		if (outFile.fail())
+		{
+			std::cerr << "Failed to open file " << pricesFile << std::endl;
+			return 1;
+		}
+
+		outFile << book_001.getName() << " "
+				<< book_001.getAuthor() << " "
+				<< book_001.getYear() << " "
+				<< book_001.getPrice() << std::endl;
+	}
+
+	{
+		std::string name;
+		std::string authorName;
+		std::string authorSurname;
+		int year;
+		float price;
+
+		std::ifstream inFile(pricesFile);
+		if (inFile.fail())
+		{
+			std::cerr << "Failed to open file " << pricesFile << std::endl;
+			return 1;
+		}
+
+		inFile >> name >> authorName >> authorSurname >> year >> price;
+		Book book_002(name, std::string(authorName + " " + authorSurname), year, price);
+
+		std::cout << "Book name: " << book_002.getName() << std::endl
+				  << "Author name: " << book_002.getAuthor() << std::endl
+				  << "Year: " << book_002.getYear() << std::endl
+				  << "Price: " << book_002.getPrice() << std::endl;
+	}
 	return 0;
 }

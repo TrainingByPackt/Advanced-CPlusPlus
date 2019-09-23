@@ -3,13 +3,10 @@
 // Author      : Brian Price
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Activity 1 Lesson 3
+// Description : Activity 1 Lesson 2
 //============================================================================
-
 #include "matrix3d.hpp"
 #include <cmath>
-#include <iostream>
-
 
 Matrix3d::Matrix3d()
 {
@@ -20,12 +17,6 @@ Matrix3d::Matrix3d()
 
 Matrix3d::Matrix3d(std::initializer_list<std::initializer_list<float>> list)
 {
-    if (list.size() != NumberRows)
-        throw std::invalid_argument("Wrong number rows in initialiser");
-    for(auto row : list)
-        if (row.size() != NumberColumns)
-            throw std::invalid_argument("Wrong number columns in initialiser");
-
     int i{0};
     for(auto it1 = list.begin(); i<NumberRows ; ++it1, ++i)
     {
@@ -33,27 +24,6 @@ Matrix3d::Matrix3d(std::initializer_list<std::initializer_list<float>> list)
         for(auto it2 = it1->begin(); j<NumberColumns ; ++it2, ++j)
             m_data[i][j] = *it2;
     }
-}
-
-void Matrix3d::check_ranges(int row, int col) const
-{
-    if ( row < 0 or row >= NumberRows)
-        throw std::out_of_range("row index out of range");
-    if ( col < 0 or col >= NumberColumns)
-        throw std::out_of_range("column index out of range");
-}
-
-float Matrix3d::get_cell(int row, int col) const
-{
-    check_ranges(row, col);
-    return m_data[row][col];
-}
-
-void Matrix3d::set_cell(int row, int col, float value)
-{
-    check_ranges(row, col);
-
-    m_data[row][col] = value;
 }
 
 Matrix3d& Matrix3d::operator*=(const Matrix3d& rhs)
@@ -70,15 +40,6 @@ Matrix3d& Matrix3d::operator*=(const Matrix3d& rhs)
 
     *this = temp;
     return *this;
-}
-
-bool Matrix3d::operator==(const Matrix3d& rhs) const
-{
-    for(int i=0 ; i<NumberRows ; i++)
-        for(int j=0 ; j<NumberColumns ; j++)
-            if (m_data[i][j] != rhs.m_data[i][j])
-                return false;
-    return true;
 }
 
 Point3d operator*(const Matrix3d& lhs, const Point3d& rhs)
@@ -104,6 +65,7 @@ Matrix3d createTranslationMatrix(float dx, float dy, float dz)
     matrix(2, 3) = dz;
     return matrix;
 }
+
 Matrix3d createScaleMatrix(float sx, float sy, float sz)
 {
     Matrix3d matrix;
@@ -164,6 +126,9 @@ Matrix3d createRotationMatrixAboutZ(float degrees)
 
     return matrix;
 }
+
+
+
 
 
 

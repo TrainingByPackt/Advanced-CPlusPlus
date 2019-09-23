@@ -3,10 +3,9 @@
 // Author      : Brian Price
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Activity 1 Lesson 3
+// Description : Activity 1 Lesson 2
 //============================================================================
 #include "point3d.hpp"
-#include <exception>
 
 Point3d::Point3d()
 {
@@ -19,10 +18,7 @@ Point3d::Point3d()
 
 Point3d::Point3d(std::initializer_list<float> list)
 {
-    if ((list.size() != (NumberRows-1)) && (list.size() != NumberRows))
-        throw std::invalid_argument("Wrong number ordinates in initialiser");
-
-    m_data[NumberRows-1] = 1;
+     m_data[NumberRows-1] = 1;
     int i{0};
     for(auto it1 = list.begin(); i<NumberRows && it1 != list.end() ; ++it1, ++i)
     {
@@ -41,12 +37,4 @@ bool Point3d::operator==(const Point3d& rhs) const
     }
     return true;
 }
-
-void Point3d::check_index(size_t index) const
-{
-    if ( index >= NumberRows)
-        throw std::out_of_range("index out of range");
-}
-
-
 

@@ -7,7 +7,7 @@
 //============================================================================
 #include <iostream>
 
-#define EXERCISE1_STEP    20
+#define EXERCISE1_STEP    1
 
 class Fraction
 {

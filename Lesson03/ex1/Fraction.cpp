@@ -8,7 +8,6 @@
 #include "Fraction.hpp"
 #include <cmath>
 #include <numeric>
-#include <stdexcept>
 
 namespace {
 inline int signum(int val) {
@@ -19,9 +18,6 @@ inline int signum(int val) {
 
 Fraction::Fraction(int numerator, int denominator) : m_numerator{numerator}, m_denominator{denominator}
 {
-    if(m_denominator == 0) {
-        throw std::domain_error("Zero Denominator");
-    }
     int sign{(signum(m_numerator)*signum(m_denominator))};
     m_numerator = std::abs(m_numerator);
     m_denominator = std::abs(m_denominator);
@@ -56,10 +52,6 @@ Fraction& Fraction::operator-=(const Fraction& rhs)
 
 Fraction& Fraction::operator/=(const Fraction& rhs)
 {
-    if (rhs.m_numerator == 0)
-    {
-        throw std::runtime_error("Fraction Divide By Zero");
-    }
     Fraction tmp(m_numerator*rhs.m_denominator, m_denominator*rhs.m_numerator);
     *this = tmp;
     return *this;

@@ -3,7 +3,7 @@
 // Author      : Brian Price
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Activity 1 Lesson 3
+// Description : Activity 1 Lesson 2
 //============================================================================
 #include "gtest/gtest.h"
 #include "../point3d.hpp"

@@ -3,69 +3,46 @@
 // Author      : Brian Price
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Activity 1 Lesson 3
+// Description : Activity 1 Lesson 2
 //============================================================================
 #include <iostream>
-#include <sstream>
+
+
 #include "point3d.hpp"
 #include "matrix3d.hpp"
-#include "serialise3d.hpp"
-#include <vector>
-
-using Point3dVec = std::vector<Point3d>;
 
 int main()
 {
-    Point3d pt{{1,4,5,0}};
-    Matrix3d mat;
+    std::cout << "\n------ Activity 1 ------\n";
+    Point3d thePoint{1,1,1};
 
-    Point3dVec points;
-    points.push_back({1.0F,2.0F,3.0F,1.0F});
-    points.push_back({2.0F,2.0F,3.0F,1.0F});
-    points.push_back({3.0F,2.0F,3.0F,1.0F});
-    points.push_back({4.0F,2.0F,3.0F,1.0F});
+    std::cout << "The point " << thePoint << "\n";
+    std::cout << "...rotated around X by 90 degrees\n";
+    auto rotX = createRotationMatrixAboutX(90.0F);
+    thePoint = rotX * thePoint;
 
+    std::cout << "...rotated around Y by 90 degrees\n";
+    auto rotY = createRotationMatrixAboutY(90.0F);
+    thePoint = rotY * thePoint;
 
-    nlohmann::json j = pt;
+    std::cout << "...rotated around Z by 90 degrees\n";
+    auto rotZ = createRotationMatrixAboutZ(90.0F);
+    thePoint = rotZ * thePoint;
 
-    std::cout << j << std::endl;
+    std::cout << "moves to " << thePoint << "\n";
 
+    std::cout << "...scaled by x=2, y = 3, z = 4\n";
+    auto scale = createScaleMatrix(2, 3, 4);
+    thePoint = scale * thePoint;
 
+    std::cout << "moves to " << thePoint << "\n";
 
-    std::stringstream buffer;
+    std::cout << "...translated by dx=-2, dy = 1, dz = -3\n";
+    auto translate = createTranslationMatrix(-2, 1, -3);
+    thePoint = translate * thePoint;
 
-    buffer << j;
-    nlohmann::json j2;
-    buffer >> j2;
-    auto p2 = j2.get<Point3d>();
-
-    if (pt == p2)
-        std::cout << "Points are the same\n";
-    else
-        std::cout << "Points are NOT the same\n";
-
-    j = mat;
-    std::cout << j << std::endl;
-    std::stringstream buffer2;
-    buffer2 << j;
-    nlohmann::json j3;
-    buffer2 >> j3;
-    auto m2 = j3.get<Matrix3d>();
-    if (mat == m2)
-        std::cout << "Matrices are the same\n";
-    else
-        std::cout << "Matrices are NOT the same\n";
-
-    try
-    {
-        std::cout << "Doing vector of points\n";
-        nlohmann::json j4 = points;
-    std::cout << "vector of points " << j4 << "\n";
-    }
-    catch(std::exception& e)
-    {
-        std::cout << e.what() << "\n";
-    }
+    std::cout << "moves to " << thePoint << "\n";
+    std::cout << "\nComplete.\n";
     return 0;
 }
 
