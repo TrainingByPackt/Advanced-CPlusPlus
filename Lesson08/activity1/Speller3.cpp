@@ -12,7 +12,7 @@
 #include "Timer.h"
 using namespace std;
 
-const size_t SIZE = 524287;
+const size_t SIZE = 16777215;
 
 template<size_t SEED> size_t hasher(const string &s)
 {
@@ -40,38 +40,32 @@ vector<int> getMisspelt(const vector<string> &vecDict, const vector<string>  &ve
   for(auto i = vecDict.begin(); i != vecDict.end(); ++i)
   {
     m_Bloom[hasher<131>(*i)] = true;
-    //m_Bloom[hasher<3131>(*i)] = true;
-    //m_Bloom[hasher<31313>(*i)] = true;
-    //m_Bloom[hasher<313131>(*i)] = true;
+    m_Bloom[hasher<3131>(*i)] = true;
+    m_Bloom[hasher<31313>(*i)] = true;
   }
 
   // Manually iterate through the text words and check if the word is missing in the dict
   // If so add it to result
   vector<int> ret;
-  double j=0, k=0;
   for(int i = 0; i < vecText.size(); ++i)
   {
     const string &s = vecText[i];
     bool hasNoBloom = 
           !m_Bloom[hasher<131>(s)] 
-      //&&  !m_Bloom[hasher<3131>(s)]
-      //&&  !m_Bloom[hasher<31313>(s)]
-      //&&  !m_Bloom[hasher<313131>(s)]
+      &&  !m_Bloom[hasher<3131>(s)]
+      &&  !m_Bloom[hasher<31313>(s)]
     ;
 
     if(hasNoBloom)
     {
-      ++j;
       ret.push_back(i);
     }
     else if(!setDict.count(s))
     {
-      ++k;
       ret.push_back(i);
     }
   }
 
-  cerr << (100.0 * (j/(j+k))) << "% hit rate\n";
   return ret;
 }
 

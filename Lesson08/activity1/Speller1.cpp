@@ -11,13 +11,14 @@
 
 #include "Timer.h"
 using namespace std;
+
 // This method must return a vector containing the strings in vecText that are not in vecDict
 vector<int> getMisspelt(const vector<string> &vecDict, const vector<string>  &vecText)
 {
-  // Make an unordered_set for the set of the dict words
+  // Put the dictionary words in a set
   set<string> setDict(vecDict.begin(), vecDict.end());
   
-  // Manually iterate through the text words and check if the word is missing in the dict
+  // Iterate through the text words one by one and check if the word is missing in the dict
   // If so add it to result
   vector<int> ret;
   for(int i = 0; i < vecText.size(); ++i)
@@ -28,7 +29,7 @@ vector<int> getMisspelt(const vector<string> &vecDict, const vector<string>  &ve
       ret.push_back(i);
     }
   }
-  
+
   return ret;
 }
 
