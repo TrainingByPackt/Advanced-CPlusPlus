@@ -1,4 +1,0 @@
-Customer Id |  Customer Name | Customer LastName | Order Id | Product Id | Quantity | TotalPrice(Regional Currency) | Regional Currency | TotalPrice($USD)
-2312|Albert | Springs| 435351| 452536 | 11 | 13243.25 | USD | 12343.25 |asdasda
-52341|Joseph | McRoy |14262 |414 | 4 | 42342.68 | GBP | 51658.07
-43836| Piyush | Jain | 4650 | 69234 | 25 | 45252.65 | INR | 631.27
