@@ -25,7 +25,7 @@ TEST(trim, empty){
 }
 
 TEST(trim, start_space){
-    string str = "   adas";
+    string str = "  adas";
     EXPECT_EQ(trim(str), string("adas"));
 }
 
@@ -35,8 +35,13 @@ TEST(trim, end_space){
 }
 
 TEST(trim, string_middle){
-    string str = "  hdgf   ";
+    string str = "       hdgf   ";
     EXPECT_EQ(trim(str), string("hdgf"));
+}
+
+TEST(trim, space_middle){
+    string str = "hd  gf";
+    EXPECT_EQ(trim(str), string("hd  gf"));
 }
 
 TEST(trim, single_char_start){

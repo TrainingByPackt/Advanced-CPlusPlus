@@ -3,7 +3,7 @@
 // Utility function to remove spaces and tabs from start of string and end of string.. 
 string trim (string &str) { // remove space and tab from string.
     string res("");
-    if ((str.find(' ') != string::npos) || (str.find(' ') != string::npos)){ // if space or tab found.. 
+    if ((str.find(' ') != string::npos) || (str.find('\t') != string::npos)){ // if space or tab found.. 
         size_t begin, end;
         if ((begin = str.find_first_not_of(" \t")) != string::npos){ // if string is not empty.. 
             end = str.find_last_not_of(" \t");
@@ -157,7 +157,7 @@ bool fillCurrencyMap() {
                 break;
             }
         } else if (!split.empty()){
-            cerr << "ERROR: Processing Currency Coversion , got incorrect parameters for Currency: " << split[0] << endl;
+            cerr << "ERROR: Processing Currency Conversion , got incorrect parameters for Currency: " << split[0] << endl;
             flag = false;
             break;
         }

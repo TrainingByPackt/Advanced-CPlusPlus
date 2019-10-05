@@ -4,6 +4,7 @@
 // Description : Exercise 8
 //============================================================================
 #include <aio.h>
+#include <signal.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <iostream>

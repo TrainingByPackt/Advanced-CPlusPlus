@@ -2,7 +2,6 @@
 // Name        : main.cpp
 // Author      : Brian Price
 // Version     :
-// Copyright   : Your copyright notice
 // Description : Activity 1 Lesson 3
 //============================================================================
 #include <iostream>
@@ -11,7 +10,7 @@
 #include <vector>
 #include "contains.hpp"
 
-#define ACTIVITY1
+// #define ACTIVITY1
 
 
 int main()
