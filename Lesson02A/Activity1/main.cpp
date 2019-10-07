@@ -7,7 +7,7 @@
 //============================================================================
 #include <iostream>
 
-#define ACTIVITY1
+// #define ACTIVITY1
 
 #if defined(ACTIVITY1)
 #include "point3d.hpp"
