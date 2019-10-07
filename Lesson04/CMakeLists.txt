@@ -23,7 +23,7 @@ endif()
 # ------------------------------------------------------------------
 # Exercise 1
 # ------------------------------------------------------------------
-add_executable(Exercise1 ex1/exercise1.cpp ex1/kitchen.cpp ex1/kitchenImpl.cpp)
+add_executable(Exercise1 ex1/exercise1.cpp ex1/kitchen.cpp)
 
 # ------------------------------------------------------------------
 # Exercise 2
