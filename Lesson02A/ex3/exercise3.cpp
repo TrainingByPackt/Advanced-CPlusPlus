@@ -35,7 +35,7 @@ int main(int argc, char**argv)
     *pvalue = 96;
     std::cout << "value = " << value << "\n\n";
 
-    int ary[15]{};        // declare array and set to all zeros
+    int ary[10]{};        // declare array and set to all zeros
     std::cout << "sizeof(ary) = " << sizeof(ary) << "\n";
     std::cout << "elements in (ary) = " << sizeof(ary)/sizeof(ary[0]) << "\n";
     print_array_size(ary);
