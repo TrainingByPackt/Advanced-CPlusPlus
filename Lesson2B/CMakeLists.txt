@@ -2,14 +2,13 @@
 # Name        : CMakeLists.txt
 # Author      : Brian Price
 # Version     :
-# Copyright   : Your copyright notice
-# Description : Lesson 3 build file
+# Description : Lesson 2B build file
 #============================================================================
 cmake_minimum_required(VERSION 3.11.0)
 
 project(Lesson03
   VERSION 0.1.0.0
-  DESCRIPTION "Lesson 3 of Advanced C++ course."
+  DESCRIPTION "Lesson 2B of Advanced C++ course."
 )
 
 set(CMAKE_DEBUG_POSTFIX d)
@@ -24,24 +23,24 @@ endif()
 # ------------------------------------------------------------------
 # Exercise 1
 # ------------------------------------------------------------------
-add_executable(Exercise1 ex1/exercise1.cpp)
+add_executable(Exercise1 Exercise01/Exercise1.cpp)
 
 # ------------------------------------------------------------------
 # Exercise 2
 # ------------------------------------------------------------------
-add_executable(Exercise2 ex2/exercise2.cpp)
+add_executable(Exercise2 Exercise02/Exercise2.cpp)
 
 # ------------------------------------------------------------------
 # Exercise 3
 # ------------------------------------------------------------------
-add_executable(Exercise3 ex3/exercise3.cpp)
+add_executable(Exercise3 Exercise03/Exercise3.cpp)
 
 # ------------------------------------------------------------------
 # Exercise 4
 # ------------------------------------------------------------------
-add_executable(Exercise4 ex4/exercise4.cpp)
+add_executable(Exercise4 Exercise04/Exercise4.cpp)
 find_package(GTest)
 
 enable_testing()
-add_subdirectory(ex4/tests)
+add_subdirectory(Exercise04/tests)
 
